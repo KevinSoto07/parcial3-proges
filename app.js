@@ -1,9 +1,15 @@
 import readline from 'readline';
+import { registrarEstudiante } from './registro.js';
+import { calcularPromedios } from './promedio.js';
+import { buscarNombre } from './busqueda.js';
+import { listarEstudiantes } from './listado.js';
 
+// Interfaz principal de readline para el menú
 const rl = readline.createInterface({
-    input:process.stdin,
+    input: process.stdin,
     output: process.stdout
 })
+
 
 // Menú principal
 function mostrarMenu(){
@@ -21,30 +27,32 @@ function mostrarMenu(){
         })
 }
 
-//Controlador del menú
+// Controlador del menú
 function opcionSeleccionada(opcion){
     switch(opcion){
         case "1":
-            //llama a la function de registro.js
+            // Llama a la function de registro.js. El callback vuelve al menú.
             registrarEstudiante(() => mostrarMenu());
             break;
 
             case "2":
-                //Llama a la function de promedio.js
+                // Llama a la function de promedio.js.
                 calcularPromedios(()=> mostrarMenu());
+                break;
 
                 case "3":
-                    //Llama a la función de busqueda.js
+                    // Llama a la función de busqueda.js.
                     buscarNombre(() => mostrarMenu());
+                    break;
 
                     case "4":
-                        //Llama la función de listado.js
+                        // Llama la función de listado.js.
                         listarEstudiantes(() => mostrarMenu());
                         break;
 
                         case "5":
                             console.log("\nSaliendo del menú");
-                            rl.close();
+                            rl.close(); // Cierra la interfaz principal
                             break;
 
                             default:
