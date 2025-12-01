@@ -1,4 +1,4 @@
-import estudiantes from "./listado.js";  // tu lista de estudiantes
+import estudiantes from "./listado.js";
 
 export function buscarNombre(callback) {
 
