@@ -1,11 +1,13 @@
 import readline from 'readline';
 import estudiantes from './listado.js'; // Importa el array central
 
-export function registrarEstudiante(callback) {
     const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+        input:process.stdin,
+        output: process.stdout,
+        terminal: false
+    })
+
+export function registrarEstudiante(callback) {
 
     rl.question("Ingrese el nombre del estudiante: ", (nombre) => {
         rl.question("Ingrese la edad: ", (edadStr) => {
@@ -40,7 +42,6 @@ export function registrarEstudiante(callback) {
                         // Agrega el nuevo estudiante al array central
                         estudiantes.push({ nombre, edad, notas }); 
                         console.log("Estudiante registrado:", { nombre, edad, notas });
-                        rl.close();
                         callback();
                     }
                 }

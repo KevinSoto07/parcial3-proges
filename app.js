@@ -7,7 +7,8 @@ import { listarEstudiantes } from './listado.js';
 // Interfaz principal de readline para el menú
 const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
+    terminal: false
 })
 
 
